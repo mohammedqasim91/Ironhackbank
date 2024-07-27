@@ -1,6 +1,5 @@
 package com.ironhack.demo.model;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,8 +10,6 @@ public abstract class Account {
     private Long id;
     private String owner;
     private double balance;
-
-
 
     // Getters and Setters
 

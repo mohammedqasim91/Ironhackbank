@@ -1,6 +1,7 @@
 package com.ironhack.demo.model;
 
 import jakarta.persistence.Entity;
+
 @Entity
 public class CheckingAccount extends Account {
     private double overdraftLimit;
