@@ -1,7 +1,9 @@
 package com.ironhack.demo.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
+@Table
 @Entity
 public class SavingsAccount extends Account {
     private double interestRate;

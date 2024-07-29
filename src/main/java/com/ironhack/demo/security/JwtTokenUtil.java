@@ -3,14 +3,29 @@ package com.ironhack.demo.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.function.Function;
 
 @Component
 public class JwtTokenUtil {
 
-    private String secret = "your_secret_key";
+    @Value("${jwt.secret}")
+    private String secret;
+
+    @Value("${jwt.expiration}")
+    private long expiration; // e.g., 3600000 for 1 hour
+
+    public String generateToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(SignatureAlgorithm.HS256, secret)
+                .compact();
+    }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -33,10 +48,6 @@ public class JwtTokenUtil {
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(String username) {
-        return createToken(username);
-    }
-
     private String createToken(String subject) {
         return Jwts.builder()
                 .setSubject(subject)
@@ -51,4 +62,5 @@ public class JwtTokenUtil {
         return (extractedUsername.equals(username) && !isTokenExpired(token));
     }
 }
+
 

@@ -1,9 +1,12 @@
 package com.ironhack.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 
+@Table
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "account_type")
 public abstract class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

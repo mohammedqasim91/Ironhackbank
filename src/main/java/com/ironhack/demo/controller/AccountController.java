@@ -1,26 +1,32 @@
 package com.ironhack.demo.controller;
 
-
+import com.ironhack.demo.exception.AccountNotFoundException;
 import com.ironhack.demo.model.Account;
 import com.ironhack.demo.repository.AccountRepository;
-import jakarta.persistence.Id;
+import com.ironhack.demo.repository.CheckingAccountRepository;
+import com.ironhack.demo.repository.SavingsAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {
 
-    @Id
     @Autowired
     private AccountRepository accountRepository;
 
-    @GetMapping
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    @Autowired
+    private CheckingAccountRepository checkingAccountRepository;
+
+    @Autowired
+    private SavingsAccountRepository savingsAccountRepository;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
+        Account account = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found with id " + id));
+        return ResponseEntity.ok(account);
     }
 
     @PostMapping
