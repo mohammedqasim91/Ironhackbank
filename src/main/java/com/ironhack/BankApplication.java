@@ -1,4 +1,4 @@
-package com.ironhack.demo;
+package com.ironhack;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

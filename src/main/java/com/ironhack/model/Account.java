@@ -1,4 +1,4 @@
-package com.ironhack.demo.model;
+package com.ironhack.model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;

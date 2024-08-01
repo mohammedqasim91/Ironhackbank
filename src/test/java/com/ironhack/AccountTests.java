@@ -1,7 +1,7 @@
-package com.ironhack.demo;
+package com.ironhack;
 
-import com.ironhack.demo.model.CheckingAccount;
-import com.ironhack.demo.repository.CheckingAccountRepository;
+import com.ironhack.model.CheckingAccount;
+import com.ironhack.repository.CheckingAccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

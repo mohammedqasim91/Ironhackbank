@@ -1,4 +1,4 @@
-package com.ironhack.demo.exception;
+package com.ironhack.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

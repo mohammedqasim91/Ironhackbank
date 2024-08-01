@@ -1,6 +1,6 @@
-package com.ironhack.demo.repository;
+package com.ironhack.repository;
 
-import com.ironhack.demo.model.User;
+import com.ironhack.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

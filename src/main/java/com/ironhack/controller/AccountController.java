@@ -1,10 +1,10 @@
-package com.ironhack.demo.controller;
+package com.ironhack.controller;
 
-import com.ironhack.demo.exception.AccountNotFoundException;
-import com.ironhack.demo.model.Account;
-import com.ironhack.demo.repository.AccountRepository;
-import com.ironhack.demo.repository.CheckingAccountRepository;
-import com.ironhack.demo.repository.SavingsAccountRepository;
+import com.ironhack.exception.AccountNotFoundException;
+import com.ironhack.model.Account;
+import com.ironhack.repository.AccountRepository;
+import com.ironhack.repository.CheckingAccountRepository;
+import com.ironhack.repository.SavingsAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
